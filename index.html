@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Happy Birthday Asmita ❤️</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;color:#fff;overflow-x:hidden;background:radial-gradient(circle at 20% 10%,#ff8fc7,transparent 30%),radial-gradient(circle at 90% 80%,#8d2c73,transparent 35%),linear-gradient(135deg,#25001f,#550033,#26001f)}
+button{font:inherit}
+#opening{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle,#7b1859,#21001d 75%);transition:.8s}
+.open-card,.message-box,.question-box{width:90%;max-width:600px;padding:32px 25px;border-radius:30px;background:#ffffff14;border:1px solid #ffffff40;backdrop-filter:blur(14px);box-shadow:0 20px 70px #0006}
+.gift{font-size:80px;animation:bounce 1.5s infinite}
+.open-card h1{font-size:29px;margin:20px 0 12px}
+.open-card p{line-height:1.6;opacity:.9;margin-bottom:25px}
+.open-btn{border:0;padding:15px 30px;border-radius:50px;background:#fff;color:#e32670;font-weight:bold}
+#main{display:none;animation:fadeIn 1s}
+section{min-height:100vh;padding:70px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.hero{position:relative;padding-bottom:110px}
+.big-heart{font-size:80px;margin-bottom:15px;animation:heartbeat 1.3s infinite}
+.hero h2{font-size:20px;font-weight:normal;opacity:.9}
+.hero h1{font-size:clamp(38px,10vw,60px);margin:15px 0;text-shadow:0 0 10px #ff5caa,0 0 30px #ff238b}
+.name{text-shadow:0 0 15px #ff80bd}
+#typing{min-height:30px;margin-top:15px;color:#ffd5e9;font-size:17px}
+.scroll-hint{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);transition:.5s}
+.scroll-hint.hide{opacity:0;transform:translate(-50%,20px)}
+.scroll-hint-text{font-size:13px;letter-spacing:2px;font-weight:bold}.scroll-arrow{font-size:30px;animation:down 1.2s infinite}
+.message-box h2{font-size:31px;margin-bottom:22px}.message-box p{font-size:16px;line-height:1.9}
+.moments h2{font-size:34px;margin-bottom:30px}
+.moment-grid{width:100%;max-width:650px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.moment{min-height:150px;padding:25px 15px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:25px;background:#ffffff14;border:1px solid #ffffff33}
+.moment-icon{font-size:45px;margin-bottom:12px}.moment h3{margin-bottom:7px}.moment p{font-size:13px;line-height:1.5;opacity:.85}
+.final h2{font-size:36px;margin-bottom:22px}.final>p{max-width:600px;font-size:17px;line-height:1.9}
+.love-ending{margin-top:45px;padding:25px 20px;border-radius:25px;background:#ffffff14;border:1px solid #ffffff33;animation:glow 2s infinite alternate}
+.love-ending h3{font-size:clamp(25px,7vw,38px);line-height:1.4;text-shadow:0 0 10px #ff4da6,0 0 25px #ff198f}
+.love-ending p{margin-top:12px}.signature{margin-top:30px;color:#ffb7d7}
+.prank-section{position:relative;overflow:hidden}.prank-title{font-size:14px;letter-spacing:3px;color:#ffc1e1;margin-bottom:15px}
+.prank-teaser{font-size:clamp(30px,8vw,48px);margin-bottom:15px;text-shadow:0 0 12px #ff4da6;animation:glowScale 2s infinite alternate}
+.prank-subtitle{max-width:500px;line-height:1.7;color:#ffd9eb;margin-bottom:45px}
+.question-box{max-width:430px}.question-box h2{font-size:clamp(25px,7vw,35px);margin-bottom:30px}
+.button-area{position:relative;width:100%;height:190px;border-radius:22px;background:#0002;overflow:hidden}
+.answer-btn{position:absolute;width:105px;padding:13px 10px;border:0;border-radius:50px;font-weight:bold;cursor:pointer;touch-action:manipulation;transition:left .25s,top .25s,transform .2s}
+.answer-btn:active{transform:scale(.92)}
+#yesBtn{left:20%;top:60px;background:linear-gradient(135deg,#ff5ca8,#ff1f82);color:#fff}
+#noBtn{left:55%;top:60px;background:#fff;color:#e83278}
+.try-text{min-height:25px;margin-top:20px;color:#ffc6e1}
+#surprise{position:fixed;inset:0;z-index:5000;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;overflow:hidden;background:radial-gradient(circle,#750052,#21001d 75%)}
+.big-surprise-emoji{font-size:55px;z-index:5300;transition:transform 2.8s ease;filter:drop-shadow(0 0 15px #ff58a9)}
+.big-surprise-emoji.grow{transform:scale(4.8)}.big-surprise-emoji.shake{animation:shake .12s infinite}
+.surprise-text{z-index:5300;margin-top:20px;font-size:clamp(24px,7vw,38px);opacity:0;transition:1s}.surprise-text.show{opacity:1}
+.party{position:fixed;top:-20px;width:9px;height:18px;z-index:5200;pointer-events:none;animation:fall 3s linear forwards}
+.firework{position:fixed;width:7px;height:7px;border-radius:50%;z-index:5100;pointer-events:none;animation:burst 1.3s ease-out forwards}
+.heart{position:fixed;bottom:-40px;z-index:50;pointer-events:none;animation:float 4s linear forwards}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+@keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes down{50%{transform:translateY(10px)}}
+@keyframes glow{from{box-shadow:0 10px 30px #ff329a26}to{box-shadow:0 10px 45px #ff329a73}}
+@keyframes glowScale{from{transform:scale(1)}to{transform:scale(1.04)}}
+@keyframes shake{0%{transform:scale(4.8) rotate(-4deg)}50%{transform:scale(4.8) rotate(4deg)}100%{transform:scale(4.8) rotate(-4deg)}}
+@keyframes burst{0%{transform:translate(0,0) scale(.2);opacity:1}100%{transform:translate(var(--x),var(--y));opacity:0}}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+@keyframes float{0%{opacity:0}15%{opacity:.9}100%{transform:translateY(-115vh) translateX(var(--drift));opacity:0}}
+@media(max-width:500px){.moment-grid{grid-template-columns:1fr 1fr}.moment{min-height:140px}.moment-icon{font-size:38px}}
+</style>
+</head>
+<body>
+
+<div id="opening"><div class="open-card">
+<div class="gift">🎁</div>
+<h1>A Little Surprise<br>For <span class="name">Asmita</span> ❤️</h1>
+<p>Someone very special deserves a very special birthday surprise... ✨</p>
+<button class="open-btn" id="openBtn">Tap To Open 🎀</button>
+</div></div>
+
+<div id="main">
+<section class="hero">
+<div class="big-heart">💗</div><h2>Today is your special day...</h2>
+<h1>Happy Birthday<br><span class="name">Asmita</span> 🎂</h1><div id="typing"></div>
+<div class="scroll-hint" id="scrollHint"><div class="scroll-hint-text">SCROLL DOWN</div><div class="scroll-arrow">↓</div></div>
+</section>
+
+<section><div class="message-box"><h2>For You, Asmita 💌</h2><p>
+Today isn't just another day. It's the day someone truly special came into this world. 🌸<br><br>
+Your smile has a way of making ordinary moments feel special. And having someone like you in my life is something I'll always be grateful for. ❤️<br><br>
+I hope this new year of your life brings you countless reasons to smile, beautiful memories, and everything that makes your heart happy. ✨<br><br>
+Keep smiling, keep shining, and never forget how special you are. 🫶
+</p></div></section>
+
+<section class="moments"><h2>Little Things About You 💕</h2><div class="moment-grid">
+<div class="moment"><div class="moment-icon">😊</div><h3>Your Smile</h3><p>One of the sweetest things about you.</p></div>
+<div class="moment"><div class="moment-icon">✨</div><h3>Your Vibe</h3><p>You have a way of making moments brighter.</p></div>
+<div class="moment"><div class="moment-icon">🌸</div><h3>Your Heart</h3><p>Always stay the beautiful person you are.</p></div>
+<div class="moment"><div class="moment-icon">💖</div><h3>Simply You</h3><p>That's what makes you truly special.</p></div>
+</div></section>
+
+<section class="final"><h2>One Last Thing... 💗</h2><p>
+I hope this little surprise brings a smile to your face.<br><br>
+May your birthday be filled with happiness, laughter, beautiful moments and everything you wish for. 🎂✨<br><br>
+Keep smiling, keep shining, and always remember that you are truly special. ❤️<br><br>
+Happy Birthday once again, <b>Asmita!</b> 🎉💗
+</p><div class="love-ending"><h3>I Love You So Much,<br>Asmita ❤️</h3><p>You will always be someone very special to me. 💗</p></div>
+<div class="signature">Made with ❤️ just for you</div></section>
+
+<section class="prank-section"><div class="prank-title">WAIT... THERE'S MORE 👀</div>
+<h1 class="prank-teaser">Something Special 🙃</h1>
+<p class="prank-subtitle">Okay okay... birthday wish khatam nahi hui yet. 😌<br>There's one tiny question I want to ask you...</p>
+<div class="question-box"><h2>Do You Love Me? 🙂</h2>
+<div class="button-area" id="buttonArea"><button class="answer-btn" id="yesBtn">YES ❤️</button><button class="answer-btn" id="noBtn">NO 😜</button></div>
+<div class="try-text" id="tryText">Choose one... 👀</div></div></section>
+</div>
+
+<div id="surprise"><div class="big-surprise-emoji" id="surpriseEmoji">☺️</div><div class="surprise-text" id="surpriseText">You are amazing, Asmita! ❤️</div></div>
+
+<script>
+"use strict";
+const opening=document.getElementById("opening");
+const main=document.getElementById("main");
+const typing=document.getElementById("typing");
+const scrollHint=document.getElementById("scrollHint");
+const buttonArea=document.getElementById("buttonArea");
+const yesBtn=document.getElementById("yesBtn");
+const noBtn=document.getElementById("noBtn");
+const tryText=document.getElementById("tryText");
+const surprise=document.getElementById("surprise");
+const surpriseEmoji=document.getElementById("surpriseEmoji");
+const surpriseText=document.getElementById("surpriseText");
+
+let yesCount=0,typingTimer=null,heartsStarted=false,surpriseStarted=false;
+
+document.getElementById("openBtn").onclick=openWebsite;
+yesBtn.onclick=yesClicked;
+noBtn.onclick=noClicked;
+
+function openWebsite(){
+ opening.style.opacity="0";
+ setTimeout(()=>{opening.style.display="none";main.style.display="block";startTyping();createConfetti(18);startHearts()},800);
+}
+function startTyping(){
+ const text="You are someone truly special to me. ❤️";let i=0;
+ clearInterval(typingTimer);typing.textContent="";
+ typingTimer=setInterval(()=>{typing.textContent+=text.charAt(i++);if(i>=text.length)clearInterval(typingTimer)},55);
+}
+window.addEventListener("scroll",()=>scrollHint.classList.toggle("hide",scrollY>40),{passive:true});
+
+function createHeart(){
+ const h=document.createElement("div");h.className="heart";
+ h.textContent=["❤️","💗","💕","💖","💞"][Math.floor(Math.random()*5)];
+ h.style.left=Math.random()*100+"vw";h.style.fontSize=16+Math.random()*18+"px";
+ h.style.setProperty("--drift",Math.random()*120-60+"px");document.body.appendChild(h);
+ setTimeout(()=>h.remove(),4200);
+}
+function startHearts(){if(heartsStarted)return;heartsStarted=true;createHeart();setInterval(createHeart,900)}
+
+function createConfetti(n){
+ for(let i=0;i<n;i++)setTimeout(()=>{
+  const p=document.createElement("div");p.className="party";p.style.left=Math.random()*100+"vw";
+  p.style.background=["#ff5ca8","#ffd166","#7ee8fa","#b8f7d4","#fff"][Math.floor(Math.random()*5)];
+  document.body.appendChild(p);setTimeout(()=>p.remove(),3200);
+ },i*70);
+}
+function moveButton(btn){
+ const w=buttonArea.clientWidth,h=buttonArea.clientHeight,bw=btn.offsetWidth,bh=btn.offsetHeight;
+ btn.style.left=Math.floor(Math.random()*Math.max(1,w-bw+1))+"px";
+ btn.style.top=Math.floor(Math.random()*Math.max(1,h-bh+1))+"px";
+}
+function noClicked(){tryText.textContent="Nice try 😜 Catch me if you can!";moveButton(noBtn)}
+function yesClicked(){
+ if(surpriseStarted)return;
+ yesCount++;
+ if(yesCount<3){tryText.textContent="Hehe 😏 one more time...";moveButton(yesBtn)}
+ else showSurprise();
+}
+function showSurprise(){
+ surpriseStarted=true;surprise.style.display="flex";document.body.style.overflow="hidden";
+ setTimeout(()=>surpriseEmoji.classList.add("grow"),100);
+ setTimeout(()=>surpriseEmoji.classList.add("shake"),2200);
+ setTimeout(()=>{
+  surpriseEmoji.classList.remove("shake");surpriseEmoji.style.transition=".45s";surpriseEmoji.style.transform="scale(18)";surpriseEmoji.style.opacity="0";
+ },3400);
+ setTimeout(()=>{createConfetti(90);createFireworks(7);surpriseText.classList.add("show")},3700);
+}
+function createFireworks(count){
+ for(let i=0;i<count;i++)setTimeout(()=>{
+  const cx=15+Math.random()*70,cy=15+Math.random()*50;
+  for(let j=0;j<22;j++){
+   const d=document.createElement("div");d.className="firework";d.style.left=cx+"vw";d.style.top=cy+"vh";
+   const a=2*Math.PI*j/22,dist=45+Math.random()*90;
+   d.style.setProperty("--x",Math.cos(a)*dist+"px");d.style.setProperty("--y",Math.sin(a)*dist+"px");
+   d.style.background=["#ff5ca8","#ffd166","#7ee8fa","#fff"][j%4];
+   surprise.appendChild(d);setTimeout(()=>d.remove(),1400);
+  }
+ },i*350);
+}
+</script>
+</body>
+</html>
